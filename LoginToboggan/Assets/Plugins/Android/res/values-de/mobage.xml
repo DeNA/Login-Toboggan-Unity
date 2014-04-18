@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources tools:ignore="TypographyEllipsis,TypographyDashes" xmlns:tools="http://schemas.android.com/tools">
+    <string name="mobage_sdkVersion">2.5.7-bbf7cd8</string>
+    <string name="mobage_supportedLanguages">en de es fr it</string><!-- Facebook -->
+
+    <string name="facebookApplicationId">180566588646375</string><!-- Mobage Production --><!-- Mobage -->				
+
+    <!-- Notification ids -->
+    <string name="mobage_notification_id_purchase_complete">1</string>
+
+    <!-- Bank -->
+    <string name="mobage_bank_notif_ticker">MobaCoin-Bank-Einkauf abgeschlossen</string>
+    <string name="mobage_bank_notif_title">Bank-Einkauf abgeschlossen</string>
+    <string name="mobage_bank_notif_message">Dein Kontostand wurde aktualisiert: +</string>
+ 
+    <!-- Exception -->
+    <string name="mobage_invalid_server_mode">Wert des Servermodus ist ungültig</string>
+
+    <!-- WebView -->
+    <string name="mobage_ok">OK</string>
+    <string name="mobage_cancel">Abbrechen</string>
+    <string name="mobage_dismiss">Verwerfen</string>
+    <string name="mobage_confirm">Bestätigen</string>
+    <string name="mobage_loading_experience">Laden ...</string>
+
+    <string name="mobage_missing_entries">Benötigte Einträge fehlen</string>
+
+    <!-- Error messages -->
+
+    <string name="mobage_error_109">Server ausgefallen</string>
+	<string name="mobage_error_110">Upgrade erforderlich</string>
+	<string name="mobage_error_111">Benutzer gesperrt</string>
+	<string name="mobage_error_112">Vereinbarung erforderlich</string>
+	<string name="mobage_error_400">Fehlerhafte Anfrage</string>
+	<string name="mobage_error_401">Nicht autorisiert</string>
+	<string name="mobage_error_403">Zustimmung verweigert</string>
+	<string name="mobage_error_404">Eintrag nicht gefunden</string><!-- Mobage errors -->
+	
+	
+	<string name="mobage_error_10001">Es ist ein Serverfehler aufgetreten</string>
+	<string name="mobage_error_10002">Netzwerk nicht verfügbar, stelle bitte sicher, dass du mit einem Netzwerk verbunden bist.</string>
+	<string name="mobage_error_10003">Es fehlen Daten</string>
+	<string name="mobage_error_10004">Einige Daten sind ungültig</string>
+	<string name="mobage_error_10005">Es ist ein unbekannter Fehler aufgetreten</string>
+	<string name="mobage_error_10006">Beim Parsen ist ein Fehler aufgetreten</string>
+	<string name="mobage_error_10007">Kein Autorisierungs-Token gefunden</string>
+	<string name="mobage_error_10008">Kein Kunden-Schlüssel gefunden</string>
+	<string name="mobage_error_10009">Mobage wurde nicht initialisiert</string>
+	<string name="mobage_error_10010">Server hat eine unerwartete Antwort zurückgegeben</string>
+	<string name="mobage_error_10011">Keine aktive Kampagne verfügbar</string><!-- Common API -->
+	
+	
+	<string name="mobage_error_20001">Ungültige Sitzung, stelle sicher, dass du angemeldet bist</string>
+	<string name="mobage_error_20002">Fehlendes Argument für Methodenaufruf</string>
+	<string name="mobage_error_20003">Ungültiges Argument für Methodenaufruf</string>
+	<string name="mobage_error_20004">Methode nicht implementiert</string>
+	<string name="mobage_error_20005">Methode nicht unterstützt</string><!-- Analytics -->
+	
+	
+	<string name="mobage_error_30001">Analytik-Server: Ungültige Antwort</string>
+	<string name="mobage_error_30002">Analytik-Server: Event abgelehnt</string>
+	<string name="mobage_error_30003">Analytik-Server: Event zu groß</string>
+	<string name="mobage_error_30004">Analytik-Server: Event-Merkmal ist zu groß</string>
+	<string name="mobage_error_30005">Analytik-Server: Event enthält Feld</string><!-- Bank -->
+	
+	
+	<string name="mobage_error_40001">Bankfehler: Ungültige Zustandsänderung</string>
+	<string name="mobage_error_40002">Bankfehler: Tote Transaktion</string>
+	<string name="mobage_error_40003">Objekte für Bank konnten nicht abgerufen werden</string>
+	<string name="mobage_error_40004">Objekterwerb fehlgeschlagen</string>
+	<string name="mobage_error_40005">Kreditobjekt-Erwerb fehlgeschlagen</string>
+	<string name="mobage_error_40006">Es war bereits eine Transaktion aktiv</string>
+	<string name="mobage_error_40007">Unerwarteter Fehler bei Bearbeitung durch Bank</string>
+	<string name="mobage_error_40008">Ungültige Daten</string><!-- Other -->
+	
+	
+	<string name="mobage_error_50001">Fehler auf Cache-Disk</string>
+	<string name="mobage_error_50002">Ungültige Konfiguration</string>
+	
+	<string name="mobage_error_60001">Es können nicht zwei Mobage-Oberflächen gleichzeitig offen sein</string>
+	<string name="mobage_error_60002">Benutzer abgebrochen</string><!-- Login/reg/FB -->
+	
+	
+	<string name="mobage_error_70001">Anmeldung abgebrochen</string>
+	<string name="mobage_error_70002">Name vergeben</string>
+	<string name="mobage_error_70003">Registrierung abgebrochen</string>
+	<string name="mobage_error_70004">Ungültige Facebook-Sitzung</string>
+	<string name="mobage_error_70005">Facebook-Fehler</string>
+	<string name="mobage_error_70006">Facebook-Abbruch</string>
+	<string name="mobage_error_70007">Anmeldung läuft bereits.</string>
+	<string name="mobage_error_70008">Dieses Facebook-Konto ist bereits mit diesem Mobage-Konto verknüpft. Wenn du dich mit diesem Facebook-Konto anmelden möchtest, tippe auf die Schaltfläche \'Neu beginnen und anmelden\'.</string>
+	<string name="mobage_error_70009">Es läuft bereits eine Facebook-Operation.</string>
+	
+	<string name="mobage_error_80001">Als anderer Benutzer angemeldet</string>
+	<string name="mobage_error_80002">Spiel konnte nicht im Markt geöffnet werden</string>
+	
+	<string name="mobage_error_90001">Zu viele Fehlversuche. Versuche es bitte später noch einmal.</string><!-- WebView -->
+	
+	
+	<string name="mobage_error_100001">Keine Rückmeldung vom Dokument.</string>
+	<string name="mobage_error_100002">Ungültige URL-Antwort</string>
+	<string name="mobage_error_100003">Konsolenfehler beim Laden des Dokuments</string>
+	<string name="mobage_error_100004">Bildschirm konnte nicht geladen werden.</string>
+	<string name="mobage_error_100005">Fehler beim Laden des Dokuments erhalten.</string>
+	<string name="mobage_error_100006">Sitemap ist fehlerhaft.</string>
+	<string name="mobage_error_100007">Sitemap konnte nicht heruntergeladen werden.</string>
+	
+	<string name="mobage_retry_timer_mins">15</string>
+</resources>

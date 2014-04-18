@@ -1,0 +1,45 @@
+#!/bin/sh
+
+DIR=${0%/*}
+INSTALLPATH=${1}
+TARGET=${2}
+OPT=${3}
+COMPANY=${4}
+PRODUCT=${5}
+
+#NDKPATH="${DIR}/../../MobageNDK"
+#NDKBUNDLEPATH="${DIR}/../../Assets/MobageNDK/MobageNDK.bundle"
+#if  [ ! -d "${NDKPATH}" ]; then
+#	mkdir "${NDKPATH}" 
+#fi
+
+#if  [ ! -d "${NDKPATH}/logs/" ]; then
+#	mkdir "${NDKPATH}/logs/" 
+#fi
+#if [ "${TARGET}" == "\"iPhone\"" ]; then
+#	TARGET="iPhone";
+#elif [ ! "${TARGET}" == "iPhone" ]; then 
+#	TARGET="android"; 
+#fi
+
+#LOG="${NDKPATH}/logs/MobagePostProcess-${TARGET}-log.txt";
+#exec &> "${LOG}";
+#echo "DIR=${DIR} INSTALLPATH=${INSTALLPATH} TARGET=${2} OPT=${OPT} COMPANY=${COMPANY} PRODUCT=${PRODUCT}"
+#if [[ -x "${NDKBUNDLEPATH}/Tools/node" ]]; then
+#	echo "Node is executable"
+#else
+#	chmod -R a+x "${NDKBUNDLEPATH}/Tools/node"
+#	chmod -R a+x "${NDKBUNDLEPATH}/Tools/android/zipalign"
+#	chmod -R a+x "${NDKBUNDLEPATH}/Tools/android/aapt"
+#fi
+#"${NDKBUNDLEPATH}/Tools/node" "${NDKBUNDLEPATH}/Tools/configurejs" "${TARGET}" "${INSTALLPATH}"
+#EXIT=`echo $?`
+#if [ -f "${LOG}" ]; then
+#	echo "${LOG} found trying to open Status: ${EXIT}"
+#	if [ ! ${EXIT} == 0 ]; then
+#		open ${LOG}
+#	fi
+#else
+#	echo "${LOG} not found please check your configuration and Unity log to see the errors"
+#	exit 1
+#fi

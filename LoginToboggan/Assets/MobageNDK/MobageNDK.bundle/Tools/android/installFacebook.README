@@ -1,0 +1,27 @@
+Description:
+
+This script installs the Facebook SDK into your Unity Project with the option to create a Unity package. With the generated Unity package, you can import the Facebook SDK into your Unity project from the Unity IDE using Assets > Import Package > Custom Package...
+
+Usage:
+
+sh installFacebook.sh
+    -D <FACEBOOK-SDK>
+    -I <UNITY-PROJECT>
+    -S <ANDROID-SDK>
+Unity Package creation
+    -P <PACKAGE-DIR>
+    -U <UNITY-APP-EXE>
+    -O <true|false>
+    
+Where:
+
+    -D <FACEBOOK-SDK>  : (Mandatory) Path to the project directory inside the unpacked Facebook SDK. This is typically <PATH-TO-FACEBOOK-SDK>/facebook.
+    -I <UNITY-PROJECT> : (Mandatory) Path to your Unity project directory.
+    -S <ANDROID-SDK>   : (Mandatory) Path to the Android Development Tools. You can find path to the SDK in your Unity IDE by going to Unity > Preferences > External Tools.
+                         The path is specified in the Android SDK location field.
+    -P <PACKAGE_DIR>   : (Optional) Directory to place the generated Unity package.
+    -U <UNITY-APP-EXE> : (Optional) Path to the Unity executable. Used to generate the actual Unity package. For example, the path to the Unity executable for a default
+                         installation is /Applications/Unity/Unity.app/Contents/MacOS/Unity.
+    -O <true|false>    : (Optional) Specifies if the Unity package should be generated or if the Facebook SDK should be installed into your Unity project.
+                           true : Generate the Unity package.
+                           false (default): Copy all relevant files (.jar files and resource files) into <UNITY-PROJECT>.

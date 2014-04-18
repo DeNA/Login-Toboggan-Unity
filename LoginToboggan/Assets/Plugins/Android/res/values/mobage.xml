@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="TypographyEllipsis,TypographyDashes">
+    <string name="mobage_sdkVersion">2.5.6.1-4295e47</string>
+    <string name="mobage_supportedLanguages">en de es fr it</string>
+    
+    <!-- Facebook -->
+    <string name="facebookApplicationId">180566588646375</string>				<!-- Mobage Production -->
+
+    <!-- Notification ids -->
+    <string name="mobage_notification_id_purchase_complete">1</string>
+
+    <!-- Bank -->
+    <string name="mobage_bank_notif_ticker">MobaCoin Bank purchase complete</string>
+    <string name="mobage_bank_notif_title">Bank purchase complete</string>
+    <string name="mobage_bank_notif_message">Your balance has been updated: +</string>
+
+    <!-- Exception -->
+    <string name="mobage_invalid_server_mode">Server Mode Value is not valid</string>
+
+    <!-- WebView -->
+    <string name="mobage_ok">OK</string>
+    <string name="mobage_cancel">Cancel</string>
+    <string name="mobage_dismiss">Dismiss</string>
+    <string name="mobage_confirm">Confirm</string>
+    <string name="mobage_loading_experience">Loading...</string>
+
+    <string name="mobage_missing_entries">Missing required entries</string>
+
+    <!-- Error messages -->
+    <string name="mobage_error_109">Server Down</string>
+	<string name="mobage_error_110">Upgrade Required</string>
+	<string name="mobage_error_111">User Banned</string>
+	<string name="mobage_error_112">Agreement Needed</string>
+	<string name="mobage_error_400">Bad Request</string>
+	<string name="mobage_error_401">Unauthorized</string>
+	<string name="mobage_error_403">Permission Denied</string>
+	<string name="mobage_error_404">Record Not Found</string>
+	
+	<!-- Mobage errors -->
+	<string name="mobage_error_10001">An error occurred on the server</string>
+	<string name="mobage_error_10002">Network unavailable, please make sure you are connected to a network.</string>
+	<string name="mobage_error_10003">Some data is missing</string>
+	<string name="mobage_error_10004">Some data is invalid</string>
+	<string name="mobage_error_10005">An unknown error occurred</string>
+	<string name="mobage_error_10006">An error occurred while parsing</string>
+	<string name="mobage_error_10007">No auth token found</string>
+	<string name="mobage_error_10008">No consumer key found</string>
+	<string name="mobage_error_10009">Mobage is not initialized</string>
+	<string name="mobage_error_10010">Server returned unexpected response</string>
+	<string name="mobage_error_10011">No active campaigns available</string>
+	
+	<!-- Common API -->
+	<string name="mobage_error_20001">Invalid session, please make sure you are logged in</string>
+	<string name="mobage_error_20002">Missing argument for method call</string>
+	<string name="mobage_error_20003">Invalid argument for method call</string>
+	<string name="mobage_error_20004">Method not implemented</string>
+	<string name="mobage_error_20005">Method not supported</string>
+	
+	<!-- Analytics -->
+	<string name="mobage_error_30001">Analytics Invalid Response</string>
+	<string name="mobage_error_30002">Analytics Server Rejected Event</string>
+	<string name="mobage_error_30003">Analytics Server Event Size Too Large</string>
+	<string name="mobage_error_30004">Analytics Server Event Property Size Too Large</string>
+	<string name="mobage_error_30005">Analytics Server Event Contains Array</string>
+	
+	<!-- Bank -->
+	<string name="mobage_error_40001">Bank Error Invalid State Transition</string>
+	<string name="mobage_error_40002">Bank Error Dead Transaction</string>
+	<string name="mobage_error_40003">Failed to get items for bank</string>
+	<string name="mobage_error_40004">Item purchase failed</string>
+	<string name="mobage_error_40005">Credit item purchase failed</string>
+	<string name="mobage_error_40006">A transaction was already running</string>
+	<string name="mobage_error_40007">Bank processing encountered unexpected error</string>
+	<string name="mobage_error_40008">Invalid credentials</string>
+	
+	<!-- Other -->
+	<string name="mobage_error_50001">Cache Disk Failed</string>
+	<string name="mobage_error_50002">Invalid Configuration</string>
+	
+	<string name="mobage_error_60001">Cannot open two Mobage UIs simultaneously</string>
+	<string name="mobage_error_60002">User Cancelled</string>
+	
+	<!-- Login/reg/FB -->
+	<string name="mobage_error_70001">Login Cancelled</string>
+	<string name="mobage_error_70002">Name Taken</string>
+	<string name="mobage_error_70003">Registration Cancelled</string>
+	<string name="mobage_error_70004">Facebook Invalid Session</string>
+	<string name="mobage_error_70005">Facebook Error</string>
+	<string name="mobage_error_70006">Facebook Cancel</string>
+	<string name="mobage_error_70007">Login already in progress</string>
+	<string name="mobage_error_70008">This Facebook account has already been linked to a Mobage account. If you wish to log in with this Facebook account, tap the &quot;start over &amp; log in&quot; button.</string>
+	<string name="mobage_error_70009">A Facebook operation is currently in progress</string>
+	
+	<string name="mobage_error_80001">Logged in with a different user</string>
+	<string name="mobage_error_80002">Could not open game in market</string>
+	
+	<string name="mobage_error_90001">Too many failed attempts. Please try again later.</string>
+	
+	<!-- WebView -->
+	<string name="mobage_error_100001">No ping back from document</string>
+	<string name="mobage_error_100002">Invalid URL response</string>
+	<string name="mobage_error_100003">Console error while loading document</string>
+	<string name="mobage_error_100004">Unable to load experience</string>
+	<string name="mobage_error_100005">Received error while loading document</string>
+	<string name="mobage_error_100006">Sitemap is malformed</string>
+	<string name="mobage_error_100007">Unable to download sitemap</string>
+	
+	<string name="mobage_retry_timer_mins">15</string>
+</resources>

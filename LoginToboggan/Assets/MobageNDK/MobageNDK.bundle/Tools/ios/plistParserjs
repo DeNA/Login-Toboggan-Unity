@@ -1,0 +1,235 @@
+var fs = require("fs");
+
+exports.parser = {
+
+	/**
+		Outputs a map containing the data from the plist in key-value pairs
+		Value in the key-value pair is { type:anyXmlKey, value:plistvalue }
+	*/
+	parse:function(path) {
+		var stringsxml = fs.readFileSync(path, "utf8");
+		var xmlLines = stringsxml.split("\n");
+
+		var xmlKeys = [	"dict", "array",
+						"key", "string", "date", 
+						"true", "false",
+						"integer", "real" ];
+		var prevKey = "";
+		var map = {};
+
+		// returns type/value pair
+		var parseXmlLine = function(lineIndex) {
+			//console.log("Parsing line", lineIndex, ":", xmlLines[lineIndex]);
+			var line = xmlLines[lineIndex].replace(/^\s+|\s+$/g,'');
+			
+			// item end
+			if(line.charAt(1) === '/') {
+				return {type:"end"};
+			}
+			
+			// Get data type
+			var type = "none";
+			for(var key in xmlKeys) {
+				//console.log("Checking key", xmlKeys[key], "index in string:", line.indexOf(xmlKeys[key]));
+				if(line.indexOf(xmlKeys[key]) === 1) { type = xmlKeys[key]; break; }
+			}
+			var stuffBetweenBrackets = "";
+			
+			var oldPrevKey = prevKey;
+			if(type != "key") {
+				prevKey = "";
+			}
+			
+			switch(type) {
+			case "true":
+				return {value:true, type:"boolean"};
+				break;
+			case "false":
+				return {value:false, type:"boolean"};
+				break;
+			case "none":
+				console.log("Invalid type on line", i, ": '", line, "'");
+				prevKey = "";
+				return {type:type, value:""};
+				break;
+			case "data":
+				console.log("Data type not supported");
+				prevKey = "";
+				return {type:type, value:""};
+				break;
+			case "dict":
+				return {type:type, value:""};
+				break;
+			case "array":
+				return {type:type, value:""};
+				break;
+			case "key":
+				stuffBetweenBrackets = line.match(/>([^\<]*)</)[1];
+				if (oldPrevKey != "") {
+					console.log("Key found inside key element");
+				}
+				prevKey = stuffBetweenBrackets;
+			}
+			
+			if(stuffBetweenBrackets == "") {
+				stuffBetweenBrackets = line.match(/>([^\<]*)</)[1];
+			}
+			if(type != "key") {
+				prevKey = "";
+			}
+			
+			var ret = {value:stuffBetweenBrackets, type:type};
+			//console.log("Parsed line", ret);
+			return ret;
+		};
+
+		var parseArray = function(lineIndex, parent, parentKey) {
+			var array = {type:"array", value:[]};
+			var index = 0;
+			
+			for(var i = lineIndex; i < xmlLines.length; ++i) {
+				var lineData = parseXmlLine(i);
+				
+				switch(lineData.type) {
+				case "key":
+					console.log("Unexpected 'key' found in array type");
+					break; // prevKey already stored
+				case "dict":
+					i = parseDict(i + 1, array.value, index);
+					break;
+				case "array":
+					i = parseArray(i + 1, array.value, index);
+					break;
+				case "end":
+					//console.log("Array end", array, parentKey);
+					parent[parentKey] = array;
+					return i;
+					break;
+				default:
+					array.value[index++] = lineData;
+					break;
+				}
+			}
+		};
+
+		var parseDict = function(lineIndex, parent, parentKey) {
+			var dict = {type:"dict", value:{}};
+			
+			var key = "";
+			
+			for(var i = lineIndex; i < xmlLines.length; ++i) {
+				var lineData = parseXmlLine(i);
+				
+				switch(lineData.type) {
+				case "key":
+					key = lineData.value;
+					break;
+				case "dict":
+					i = parseDict(i + 1, dict.value, key);
+					break;
+				case "array":
+					i = parseArray(i + 1, dict.value, key);
+					break;
+				case "end":
+					//console.log("Dict end", dict, parent);
+					parent[parentKey] = dict;
+					return i;
+					break;
+				default:
+					//console.log("Setting dict value", key, lineData);
+					dict.value[key] = lineData;
+					break;
+				}
+			}
+		};
+
+
+		for(var i = 0; i < xmlLines.length; ++i) {
+
+			var line = parseXmlLine(i);
+			var parsed = false;
+			
+			// Parse item
+			switch(line.type) {
+			case "dict":
+				if(parsed) {
+					console.log("Multiple root elements");
+				}
+				parsed = true;
+				i = parseDict(i + 1, map, "root");
+				break;
+			default:
+				console.log("Unsupported type as root:", line.type);
+				break;
+			}
+		}
+		map = map.root;
+		delete map.root;
+		
+		return map;
+	},
+	
+	write:function(map, path) {
+		// Write new file
+		var newPlist = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">";
+
+		var writeArray = function(array, indentString) {
+			newPlist += "\n" + indentString + "<array>";
+			
+			for(var key in array.value) {
+				if(!array.value.hasOwnProperty(key)) continue;
+				
+				var item = array.value[key];
+				
+				switch(item.type) {
+				case "dict":
+					writeDict(item, indentString + "	");
+					break;
+				case "array":
+					writeArray(item, indentString + "	");
+					break;
+				case "boolean":
+					newPlist += "\n" + indentString + "	<" + item.value + "/>";
+					break;
+				default:
+					newPlist += "\n" + indentString + "	<" + item.type + ">" + item.value + "</" + item.type + ">";
+					break;
+				}
+			}
+			newPlist += "\n" + indentString + "</array>";
+		};
+
+		var writeDict = function(dict, indentString) {
+			newPlist += "\n" + indentString + "<dict>";
+			
+			for(var key in dict.value) {
+				if(!dict.value.hasOwnProperty(key)) continue;
+				
+				var item = dict.value[key];
+				newPlist += "\n" + indentString + "	<key>" + key + "</key>";
+				
+				switch(item.type) {
+				case "dict":
+					writeDict(item, indentString + "	");
+					break;
+				case "array":
+					writeArray(item, indentString + "	");
+					break;
+				case "boolean":
+					newPlist += "\n" + indentString + "	<" + item.value + "/>";
+					break;
+				default:
+					newPlist += "\n" + indentString + "	<" + item.type + ">" + item.value + "</" + item.type + ">";
+					break;
+				}
+			}
+			newPlist += "\n" + indentString + "</dict>";
+		};
+
+		writeDict(map, "");
+		
+		newPlist += "\n</plist>\n";
+
+		fs.writeFileSync(path, newPlist);
+	}
+};

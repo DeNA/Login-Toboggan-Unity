@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EventDispatcher.cs">
+    <Files>
+      <File FileName="Assets/Scripts/EventDispatcher.cs" Line="21" Column="1" />
+      <File FileName="Assets/Scripts/UI/UIController.cs" Line="77" Column="1" />
+      <File FileName="Assets/Scripts/Mobage/MobageHelper.cs" Line="165" Column="3" />
+      <File FileName="Assets/Scripts/Facebook/FacebookHelper.cs" Line="11" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

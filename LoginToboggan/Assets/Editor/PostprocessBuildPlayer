@@ -1,0 +1,23 @@
+#!/bin/sh
+
+DIR=${0%/*}
+INSTALLPATH=${1}
+TARGET=${2}
+OPT=${3}
+COMPANY=${4}
+PRODUCT=${5}
+
+# This will run all postprocess builder players that start with PostprocessBuildPlayer
+# If there is a special order required for your scripts please modify it here.
+NDKPATH="${DIR}/../../MobageNDK"
+if  [ ! -d "${NDKPATH}" ]; then
+	mkdir "${NDKPATH}" 
+fi
+
+if  [ ! -d "${NDKPATH}/logs/" ]; then
+	mkdir "${NDKPATH}/logs/" 
+fi
+LOG="${NDKPATH}/logs/MobagePostProcess-${TARGET}-PostprocessBuildPlayer.txt";
+exec &> "${LOG}";
+find Assets -name PostprocessBuildPlayer_* -not -name "*.meta" -not -name '.svn*' | while read postProcessFile; do echo "./${postProcessFile} \"${1}\" \"${2}\" \"${3}\" \"${4}\" \"${5}\""; chmod +x "${postProcessFile}"; "./${postProcessFile}" "\"${1}\"" "\"${2}\"" "\"${3}\"" "\"${4}\"" "\"${5}\""; done
+

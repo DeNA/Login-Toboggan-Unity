@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources tools:ignore="TypographyEllipsis,TypographyDashes" xmlns:tools="http://schemas.android.com/tools">
+    <string name="mobage_sdkVersion">2.5.7-bbf7cd8</string>
+    <string name="mobage_supportedLanguages">en de es fr it</string><!-- Facebook -->
+    
+    
+    <string name="facebookApplicationId">180566588646375</string><!-- Mobage Production --><!-- Mobage -->				
+
+    <!-- Notification ids -->
+    <string name="mobage_notification_id_purchase_complete">1</string>
+
+    <!-- Bank -->
+    <string name="mobage_bank_notif_ticker">Compra en el banco de MobaCoins completada</string>
+    <string name="mobage_bank_notif_title">Compra en el banco completada</string>
+    <string name="mobage_bank_notif_message">Tu saldo está actualizado: +</string>
+
+    <!-- Exception -->
+    <string name="mobage_invalid_server_mode">El valor del modo servidor no es válido.</string>
+
+    <!-- WebView -->
+    <string name="mobage_ok">OK</string>
+    <string name="mobage_cancel">Cancelar</string>
+    <string name="mobage_dismiss">Ignorar</string>
+    <string name="mobage_confirm">Confirmar</string>
+    <string name="mobage_loading_experience">Cargando...</string>
+
+    <string name="mobage_missing_entries">Faltan entradas obligatorias</string>
+
+    <!-- Error messages -->
+
+    <string name="mobage_error_109">Servidor caído.</string>
+	<string name="mobage_error_110">Actualización obligatoria.</string>
+	<string name="mobage_error_111">Usuario suspendido.</string>
+	<string name="mobage_error_112">Acuerdo necesario.</string>
+	<string name="mobage_error_400">Solicitud errónea.</string>
+	<string name="mobage_error_401">Sin autorización.</string>
+	<string name="mobage_error_403">Permiso denegado.</string>
+	<string name="mobage_error_404">Registro no encontrado.</string><!-- Mobage errors -->
+	
+	
+	<string name="mobage_error_10001">Se ha producido un error en el servidor.</string>
+	<string name="mobage_error_10002">Red no disponible. Comprueba que estás conectado a una red.</string>
+	<string name="mobage_error_10003">Faltan algunos datos.</string>
+	<string name="mobage_error_10004">Algunos datos no son válidos.</string>
+	<string name="mobage_error_10005">Se ha producido un error desconocido.</string>
+	<string name="mobage_error_10006">Se ha producido un error de análisis sintáctico.</string>
+	<string name="mobage_error_10007">No se ha encontrado el token auth.</string>
+	<string name="mobage_error_10008">No se ha encontrado la clave de consumidor.</string>
+	<string name="mobage_error_10009">Mobage no se ha iniciado.</string>
+	<string name="mobage_error_10010">El servidor a devuelto una respuesta inesperada.</string>
+	<string name="mobage_error_10011">No hay campañas activas disponibles.</string><!-- Common API -->
+	
+	
+	<string name="mobage_error_20001">Sesión inválida, comprueba que estás conectado.</string>
+	<string name="mobage_error_20002">Falta el argumento para la llamada al método.</string>
+	<string name="mobage_error_20003">El argumento para la llamada al método no es válido.</string>
+	<string name="mobage_error_20004">Método no implementado.</string>
+	<string name="mobage_error_20005">Método incompatible.</string><!-- Analytics -->
+	
+	
+	<string name="mobage_error_30001">Respuesta analítica inválida.</string>
+	<string name="mobage_error_30002">El servidor analítico ha rechazado el evento.</string>
+	<string name="mobage_error_30003">El evento del servidor analítico es demasiado grande.</string>
+	<string name="mobage_error_30004">La propiedad del evento del servidor analítico es demasiado grande.</string>
+	<string name="mobage_error_30005">El evento del servidor analítico contiene un vector.</string><!-- Bank -->
+	
+	
+	<string name="mobage_error_40001">Error del banco. Transición de estado inválida.</string>
+	<string name="mobage_error_40002">Error del banco. Transacción muerta.</string>
+	<string name="mobage_error_40003">No se han podido obtener artículos para el banco.</string>
+	<string name="mobage_error_40004">Compra del artículo fallida.</string>
+	<string name="mobage_error_40005">Compra de crédito fallida.</string>
+	<string name="mobage_error_40006">Ya había una transacción activa.</string>
+	<string name="mobage_error_40007">Error inesperado en el proceso bancario.</string>
+	<string name="mobage_error_40008">Credenciales inválidas.</string><!-- Other -->
+	
+	
+	<string name="mobage_error_50001">La caché del disco ha fallado.</string>
+	<string name="mobage_error_50002">Configuración inválida.</string>
+	
+	<string name="mobage_error_60001">No puedes abrir dos UI de Mobage al mismo tiempo.</string>
+	<string name="mobage_error_60002">Cancelado por el usuario.</string><!-- Login/reg/FB -->
+	
+	
+	<string name="mobage_error_70001">Sesión cancelada.</string>
+	<string name="mobage_error_70002">Nombre ya registrado.</string>
+	<string name="mobage_error_70003">Registro cancelado.</string>
+	<string name="mobage_error_70004">Sesión de Facebook inválida.</string>
+	<string name="mobage_error_70005">Error de Facebook.</string>
+	<string name="mobage_error_70006">Cancelación de Facebook.</string>
+	<string name="mobage_error_70007">Conexión en curso</string>
+	<string name="mobage_error_70008">Esta cuenta de Mobage ya está enlazada a otra cuenta de Facebook. Si quieres entrar con esta cuenta de Facebook, toca el botón "Volver a empezar y entrar".</string>
+	<string name="mobage_error_70009">Hay una operación de Facebook en curso</string>
+	
+	<string name="mobage_error_80001">Sesión iniciada con un usuario distinto.</string>
+	<string name="mobage_error_80002">No es posible abrir el juego en el mercado.</string>
+	
+	<string name="mobage_error_90001">Demasiados intentos fallidos. Inténtalo más tarde.</string><!-- WebView -->
+	
+	
+	<string name="mobage_error_100001">No hay pingback del documento</string>
+	<string name="mobage_error_100002"> Respuesta URL inválida</string>
+	<string name="mobage_error_100003">Error de consola al cargar el documento</string>
+	<string name="mobage_error_100004">No es posible cargar la pantalla</string>
+	<string name="mobage_error_100005">Se ha recibido un error al cargar el documento</string>
+	<string name="mobage_error_100006">El mapa del sitio web no está formado</string>
+	<string name="mobage_error_100007">No es posible descargar el mapa del sitio</string>
+	
+	<string name="mobage_retry_timer_mins">15</string>
+</resources>

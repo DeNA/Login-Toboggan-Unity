@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="_ads_conf_enableAdsLibLogging">true</bool>
+    <bool name="_ads_conf_enableAdvertiserLoggingIfAvailable">true</bool>
+    
+    
+	<!-- Adnet IDs for Boney the Runner -->
+
+	<!-- Add the following to the end of strings.xml -->
+	<string name="_ad_AppRedeemSecretKeyA">3958</string>
+	<string name="_ad_AppRedeemSecretKeyB">4408</string>
+	<string name="_ad_AppRedeemSecretKeyC">94</string>
+	<string name="_ad_AppRedeemSecretKeyD">360747</string>
+	<string name="_ad_CCServerAppKey">Boney-The-Runner-BH-Android</string>
+	<string name="_ad_ChartBoostAppId">508ec2ce16ba47170b000000</string>
+	<string name="_ad_ChartBoostAppSignature">fa1e2fd287dad87ed97e46655e13ee09e68f7ae4</string>
+	<string name="_ad_FlurryAppId">Y6SNM4Y8F5YKB6VZRXRK</string>
+	<string name="_ad_GreystripeAppId">100004338</string>
+	<string name="_ad_InMobiAppId">0414ce6c-7a04-4a14-b0fb-a14da3044223</string>
+	<string name="_ad_KochavaCampaignId">koboneytherunnerandroidngmoco246508ecf37ea726508ecf629092c</string>
+	<string name="_ad_LeadBoltAppId">90010837</string>
+	<string name="_ad_LeadBoltSecret">33af4f9e8c9b4545</string>
+	<string name="_ad_LeadBoltGroup">runner-and</string>
+	<string name="_ad_MillennialGoalId">21392</string>
+	<string name="_ad_SponsorPayAppId">A62465</string>
+	<string name="_ad_TapJoyAppId">b989be99-e9e2-44eb-b52d-98b63d3d6d28</string>
+	<string name="_ad_TapJoySecret">OGfsBVELuTN5rXa9RbXH</string>
+	<string name="_ad_W3iAppId">12197</string>
+	<string name="_ad_PlayhavenToken">60d8dede03cb4c5aa0a709c4be5791bf</string>
+	<string name="_ad_PlayhavenSecret">aa3cfcf06d294812ad81d032b7fbf019</string>
+</resources>

@@ -1,0 +1,84 @@
+var fs = require("fs");
+var sys = require('sys');
+var exec = require('child_process').spawn;
+var path = require('path');
+var curPath = process.argv[1].substring(0, process.argv[1].lastIndexOf("/") + 1);
+var platform = process.argv[2];
+var installpath = process.argv[3];
+
+console.log("Configuring platform:", platform);
+
+if(!platform || !installpath) {
+	console.log("Usage:");
+	console.log("	" + process.argv[0], process.argv[1], "platform installpath");
+	return;
+}
+curPath= curPath.replace(/"/g, '');
+console.log("CurrentPath: " + curPath);
+if(curPath.indexOf('/') !== 0) {
+	console.log("Please use fully qualified paths for arguments (e.g. using ${PWD} constant)");
+	curPath = path.resolve(__dirname,curPath);
+}
+
+installpath = installpath.replace(/"/g, '');
+console.log("InstallPath: " + installpath);
+if(installpath.indexOf('/') !== 0) {
+	console.log("Please use fully qualified paths for arguments (e.g. using ${PWD} constant)");
+	installpath = path.resolve(__dirname,installpath);
+}
+
+var data = JSON.parse(fs.readFileSync(curPath + "../../../../MobageNDK/config/config.json"));
+
+//console.log(JSON.stringify(data, null, 4));
+
+if(platform === "android") {
+	console.log("Configuring android");
+	var proc = exec("/bin/sh", [curPath + "android/updateApk.sh","-i", installpath, "-n", data.android.packageName, "-s", data.android.keyStorePath, "-a", data.android.keyStoreAlias, "-p", data.android.keyStorePass], {stdio:'inherit'});
+	proc.on('exit', function(code) {
+		console.log("Done configuring android Status: " + code);
+		if (code != 0) {
+			console.log("With Errors")
+		} else {
+			console.log("Successfully")
+		}
+		process.exit(code);
+	});
+
+}
+else if(platform === "iPhone") {
+	// TODO: Get unity version? No longer needed. Targets are picked from the Pbxproj.
+	var unityVersion = 4;
+	var installTrackArg = "";
+	var facebookArg = "";
+	var plistExtras = "";
+	var appID = data.ios.appID;
+	var bundleID = data.ios.bundleID;
+	if(data.ios.useAdTracking === true) { installTrackArg = "-t"; }
+	if(data.ios.facebook && data.ios.facebook.useFacebookFramework === true) { facebookArg = JSON.stringify(data.ios.facebook); console.log("Facebook" + facebookArg);}
+	if(data.ios.plistExtras) { plistExtras = JSON.stringify(data.ios.plistExtras);}
+	var proc;
+
+	if (facebookArg === "") {
+		if (plistExtras === "") {
+			proc = exec("/bin/sh", [curPath + "ios/mobage_postprocess.sh", "-i", installpath,  "-u", unityVersion, "-b", bundleID, "-a", appID, installTrackArg], {stdio:'inherit'});
+		} else {
+			proc = exec("/bin/sh", [curPath + "ios/mobage_postprocess.sh", "-i", installpath,  "-u", unityVersion, "-b", bundleID, "-a", appID, "-e", plistExtras, installTrackArg], {stdio:'inherit'});
+		}
+	} else {
+		if (plistExtras === "") {
+			proc = exec("/bin/sh", [curPath + "ios/mobage_postprocess.sh","-i", installpath, "-u", unityVersion, "-f", facebookArg, "-b", bundleID, "-a", appID, installTrackArg], {stdio:'inherit'});	
+		} else {
+			proc = exec("/bin/sh", [curPath + "ios/mobage_postprocess.sh","-i", installpath, "-u", unityVersion, "-f", facebookArg, "-b", bundleID, "-a", appID, "-e", plistExtras, installTrackArg], {stdio:'inherit'});	
+		}
+	}
+	
+	proc.on('exit', function(code) {
+		console.log("Done configuring ios Status: " + code);
+		if (code != 0) {
+			console.log("With Errors")
+		} else {
+			console.log("Successfully")
+		}
+		process.exit(code);
+	});
+}

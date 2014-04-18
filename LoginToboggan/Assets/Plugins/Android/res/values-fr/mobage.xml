@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources tools:ignore="TypographyEllipsis,TypographyDashes" xmlns:tools="http://schemas.android.com/tools">
+    <string name="mobage_sdkVersion">2.5.7-bbf7cd8</string>
+    <string name="mobage_supportedLanguages">en de es fr it</string><!-- Facebook -->
+    
+    
+    <string name="facebookApplicationId">180566588646375</string><!-- Mobage Production --><!-- Mobage -->				
+
+    <!-- Notification ids -->
+    <string name="mobage_notification_id_purchase_complete">1</string>
+
+    <!-- Bank -->
+    <string name="mobage_bank_notif_ticker">Commande de MobaCoin à la banque terminée</string>
+    <string name="mobage_bank_notif_title">Commande à la banque terminée</string>
+    <string name="mobage_bank_notif_message">Ton solde a été mis à jour : +</string>
+    
+    <!-- Exception -->
+    <string name="mobage_invalid_server_mode">Valeur du mode serveur non valide</string>
+
+    <!-- WebView -->
+    <string name="mobage_ok">OK</string>
+    <string name="mobage_cancel">Annuler</string>
+    <string name="mobage_dismiss">Ignorer</string>
+    <string name="mobage_confirm">Confirmer</string>
+    <string name="mobage_loading_experience">Chargement...</string>
+
+    <string name="mobage_missing_entries">Entrées manquantes</string>
+
+    <!-- Error messages -->
+
+    <string name="mobage_error_109">Panne de serveur</string>
+	<string name="mobage_error_110">Mise à jour requise</string>
+	<string name="mobage_error_111">Utilisateur banni</string>
+	<string name="mobage_error_112">Accord nécessaire</string>
+	<string name="mobage_error_400">Mauvaise requête</string>
+	<string name="mobage_error_401">Non autorisé</string>
+	<string name="mobage_error_403">Permission refusée</string>
+	<string name="mobage_error_404">Enregistrement non trouvé</string><!-- Mobage errors -->
+	
+	
+	<string name="mobage_error_10001">Une erreur s\'est produite sur le serveur</string>
+	<string name="mobage_error_10002">Réseau indisponible, merci de vérifier la connexion au réseau.</string>
+	<string name="mobage_error_10003">Données manquantes</string>
+	<string name="mobage_error_10004">Données non valides</string>
+	<string name="mobage_error_10005">Une erreur inconnue s\'est produite</string>
+	<string name="mobage_error_10006">Une erreur s\'est produite durant l\'analyse</string>
+	<string name="mobage_error_10007">Jeton d\'authentification introuvable</string>
+	<string name="mobage_error_10008">Clé de consommateur introuvable</string>
+	<string name="mobage_error_10009">Mobage n\'est pas initialisé</string>
+	<string name="mobage_error_10010">Le serveur a retourné une réponse inattendue</string>
+	<string name="mobage_error_10011">Aucune campagne active disponible</string><!-- Common API -->
+	
+	
+	<string name="mobage_error_20001">Session non valide, merci de vérifier que tu es bien connecté</string>
+	<string name="mobage_error_20002">Argument de méthode d\'appel manquant</string>
+	<string name="mobage_error_20003">Argument de méthode d\'appel non valide</string>
+	<string name="mobage_error_20004">Méthode non implémentée</string>
+	<string name="mobage_error_20005">Méthode non supportée</string><!-- Analytics -->
+	
+	
+	<string name="mobage_error_30001">Réponse d\'analyses non valide</string>
+	<string name="mobage_error_30002">Événement d\'analyse du serveur rejeté</string>
+	<string name="mobage_error_30003">Taille de l\'analyse de l\'événement du serveur trop volumineuse</string>
+	<string name="mobage_error_30004">Taille de propriété d\'analyse d\'événement du serveur trop volumineuse.</string>
+	<string name="mobage_error_30005">L\'événement d\'analyse du serveur contient une série</string><!-- Bank -->
+	
+	
+	<string name="mobage_error_40001">Erreur banque : transition d\'état non valide</string>
+	<string name="mobage_error_40002">Erreur banque : transaction obsolète</string>
+	<string name="mobage_error_40003">Échec de l\'obtention d\'objets pour la banque</string>
+	<string name="mobage_error_40004">Échec de l\'achat</string>
+	<string name="mobage_error_40005">Échec du crédit de l\'achat</string>
+	<string name="mobage_error_40006">Une transaction est déjà en cours</string>
+	<string name="mobage_error_40007">Échec inattendu du traitement des informations bancaires</string>
+	<string name="mobage_error_40008">Données invalides</string><!-- Other -->
+	
+	
+	<string name="mobage_error_50001">Échec du cache de disque</string>
+	<string name="mobage_error_50002">Configuration non valide</string>
+	
+	<string name="mobage_error_60001">Impossible d\'ouvrir simultanément deux comptes Mobage</string>
+	<string name="mobage_error_60002">Utilisateur annulé</string><!-- Login/reg/FB -->
+	
+	
+	<string name="mobage_error_70001">Identifiants annulés</string>
+	<string name="mobage_error_70002">Nom déjà utilisé</string>
+	<string name="mobage_error_70003">Inscription annulée</string>
+	<string name="mobage_error_70004">Session Facebook non valide</string>
+	<string name="mobage_error_70005">Erreur Facebook</string>
+	<string name="mobage_error_70006">Annuler Facebook</string>
+	<string name="mobage_error_70007">Connexion en cours</string>
+	<string name="mobage_error_70008">Un autre compte Facebook est déjà associé à ce compte Mobage. Pour te connecter avec ce compte Facebook, touche Recommencer &amp; Connexion.</string>
+	<string name="mobage_error_70009">Une opération Facebook est en cours</string>
+	
+	<string name="mobage_error_80001">Connexion à partir d\'un nom d\'utilisateur différent</string>
+	<string name="mobage_error_80002">Impossible d\'ouvrir le jeu sur le marché</string>
+	
+	<string name="mobage_error_90001">Trop d\'échecs successifs. Merci de réessayer plus tard.</string><!-- WebView -->
+	
+	
+	<string name="mobage_error_100001">Aucun retour de ping</string>
+	<string name="mobage_error_100002">Réponse URL non valide</string>
+	<string name="mobage_error_100003">Erreur console lors du chargement du document</string>
+	<string name="mobage_error_100004">Chargement impossible</string>
+	<string name="mobage_error_100005">Erreur reçue lors du chargement du document</string>
+	<string name="mobage_error_100006">Malformation du plan du site</string>
+	<string name="mobage_error_100007">Impossible de télécharger le plan du site</string>
+	
+	<string name="mobage_retry_timer_mins">15</string>
+</resources>

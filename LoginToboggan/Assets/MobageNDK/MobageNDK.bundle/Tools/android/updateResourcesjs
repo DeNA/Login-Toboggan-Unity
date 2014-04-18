@@ -1,0 +1,131 @@
+var fs = require("fs");
+
+var curPath = process.argv[1].substring(0, process.argv[1].lastIndexOf("/") + 1);
+
+var data = JSON.parse(fs.readFileSync(curPath + "../../../../../MobageNDK/config/config.json"));
+
+var decompilePath = process.argv[2];
+
+if(!decompilePath) {
+	console.log("Usage:");
+	console.log("	" + process.argv[0], process.argv[1], "decompilePath");
+	return;
+}
+
+var excludeInvalidStrings = function(line) {
+	var excludes = [
+		"<?xml",
+		"<resources>",
+		"</resources>"
+	];
+	excludes.forEach(function(item) {
+		if(line.indexOf(item) !== -1) {
+			return true;
+		}
+	});
+	return false;
+};
+
+var parseXmlFile = function(path) {
+	var stringsxml = fs.readFileSync(path, "utf8");
+	var xmlLines = stringsxml.split("\n");
+	var xmlMap = {};
+	for(var i = 0; i < xmlLines.length; ++i) {
+		var line = xmlLines[i].replace(/^\s+|\s+$/g,'');
+		if(line === "") { continue; }
+		if(line.indexOf("<bool") === 0)
+		{
+				while(line.indexOf("</bool>") === -1) {
+					line += "\n" + (xmlLines[++i].replace(/^\s+|\s+$/g,''));
+				}
+				console.log("LineOutput: ", line);
+				var stuffBetweenQuotesBool = line.match(/\"([^\"]+)\"/)[1];
+				var stuffBetweenBracketsBool = line.match(/>([^<]+)</)[1];
+				var nameBool = stuffBetweenQuotesBool;
+				var valueBool = stuffBetweenBracketsBool;
+				if (!xmlMap["bool"])
+				{
+					var boolMap = {};
+					xmlMap["bool"] = boolMap;
+				}
+				xmlMap["bool"][nameBool] = valueBool;
+				console.log("xmlMap[bool][nameBool]: ", xmlMap["bool"][nameBool]);
+				continue;
+		}
+		if(line.indexOf("<string") === -1 && !excludeInvalidStrings(line)) { console.log("Line", i, "is invalid string:", line); continue; }
+		
+		// There may be newlines in the strings - append
+		while(line.indexOf("</string>") === -1) {
+			line += "\n" + (xmlLines[++i].replace(/^\s+|\s+$/g,''));
+		}
+		var stuffBetweenQuotes = line.match(/\"([^\"]+)\"/)[1];
+		var stuffBetweenBrackets = line.match(/>([^<]+)</)[1];
+		var name = stuffBetweenQuotes;
+		var value = stuffBetweenBrackets;
+		xmlMap[name] = value;
+	}
+	return xmlMap;
+};
+
+var writeXml = function(type, xmlPath, originalMap) {
+	var xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<resources>\n";
+	for(var item in originalMap) {
+		if(!originalMap.hasOwnProperty(item)) { continue; }
+	
+		if (item === "bool" && type !== "bool") { 
+			continue; 
+		}
+		else if (item === "bool" && type === "bool") {
+			for (var bool in originalMap["bool"]) {
+				xml += "\t<" + type + " name=\"" + bool + "\">" + originalMap["bool"][bool] + "</" + type +">\n";
+			}
+			continue;
+		}
+		xml += "\t<" + type + " name=\"" + item + "\">" + originalMap[item] + "</" + type +">\n";
+	}
+	xml += "</resources>\n";
+	//console.log("Rewritten xml:", xml);
+
+	// Export xml
+	fs.writeFileSync(xmlPath, xml);
+
+};
+
+// Parse xml into map
+var stringsXmlPath = decompilePath + "/res/values/strings.xml";
+var boolXmlPath = decompilePath + "/res/values/bools.xml";
+var map = parseXmlFile(stringsXmlPath);
+
+//console.log("Parsed xml:", JSON.stringify(map, null, 4));
+
+// Update map with ad network data
+if(data.android.useAdTracking) {
+	var adMap = {};
+	var adsXmlPath = curPath + "../../../../../MobageNDK/config/android/" + data.android.adTrackingFilename;
+	var adMap = parseXmlFile(adsXmlPath);
+	
+	for(var adKey in adMap) {
+		if(!adMap.hasOwnProperty(adKey)) { continue; }
+		
+		map[adKey] = adMap[adKey];
+	}
+}
+
+if(data.android.facebook && (data.android.facebook.FacebookAppID != null && data.android.facebook.FacebookAppID.length > 0)) {
+	map["facebookApplicationId"] = data.android.facebook.FacebookAppID;
+}
+
+if(data["sitemapUrl"]) {
+	map["sitemapUrl"] = data["sitemapUrl"];
+}
+// Re-write xml
+writeXml("string",stringsXmlPath, map);
+
+var boolMap = parseXmlFile(boolXmlPath);
+for(var boolKey in map["bool"]) {
+	if (!map["bool"].hasOwnProperty(boolKey)) { continue; }
+	
+	boolMap[boolKey] = map["bool"][boolKey];
+	console.log("BoolKey: ", boolKey, map["bool"][boolKey]);
+}
+writeXml("bool", boolXmlPath, boolMap);
